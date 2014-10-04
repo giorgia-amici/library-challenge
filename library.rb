@@ -5,9 +5,6 @@ class Library
 		@inventory = []
 	end
 
-
-#size() can count the items in the library
-
 	def number_of_books
 		@inventory.size
 	end		
