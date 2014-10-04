@@ -20,10 +20,6 @@ class Member
 	end
 
 
-
-
-
-
 end
 
 
