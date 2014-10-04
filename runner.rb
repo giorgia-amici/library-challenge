@@ -5,7 +5,6 @@ require './artisan.rb'
 require "date"
 
 
-
 def get_instances
 	@sherlock = Book.new
 	@sherlock.title = 'Sherlock Holmes'
@@ -19,8 +18,6 @@ def get_instances
 	@giorgia = Member.new('Giorgia', 'Amici')
 	@artisan_needed = Artisan.new
 end
-
-
 
 
 get_instances
