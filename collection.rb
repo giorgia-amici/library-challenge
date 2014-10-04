@@ -7,12 +7,17 @@ class Library
 
 
 
-#call the following method first then add the objects to the list
+#call the following method first then add the objects to the list and along with
+#size() can count the items in the library
 	def get_collection
 		@library
 	end
 
 
+
+	def tot_books
+		puts "We have #{@library.get_collection.size} books "
+	end
 
 
 
@@ -22,20 +27,9 @@ end
 #count of how many books are in the library's collection
 
 #first I need to store my collection in a list? or an hash?
-
-
-#attempt with list
-
-
+#attempt with list(done)
+#to do: attemp using an hash that will have 3 symbols :title, :author and :isbn
 
 
 
 
-
-=begin
-when I have tried to push my object into my array, it did not allow me and I had to do
-	collection.library_collection << @sherlock
-	but before I had already do 
-	collection.library_collection = []
-	
-=end

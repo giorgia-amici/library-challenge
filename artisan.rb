@@ -1,0 +1,5 @@
+class Artisan
+	
+
+
+end

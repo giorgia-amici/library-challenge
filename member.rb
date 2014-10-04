@@ -10,8 +10,16 @@ class Member
 	def borrowing_books(book)
 		@start_loan_date = Date.today
 		@end_loan_date = @start_loan_date + 30
-		@loan_history << @surname + " " + @name + " / " + "Item ISBN: " + book.isbn + " / " + "End of loan date : " + @end_loan_date.to_s 
+		@loan_history << @surname + " " + @name + " / " + "Item ISBN: " + book.isbn + " / " + "End of loan date : " + @end_loan_date.to_s
+		book.available = false
+
 	end
+
+	def start_loan_date
+		@start_loan_date
+	end
+
+
 
 
 
@@ -19,9 +27,3 @@ class Member
 end
 
 
-	#I want the date of today to be dispayed along with the item isbn
-	#I want also the expring date to be displayed
-
-# today =  Date.today 
-# next_month = today + 30
-# #require "date"
