@@ -12,6 +12,7 @@ class Member
 		@end_loan_date = @start_loan_date + 30
 		@loan_history << @surname + " " + @name + " / " + "Item ISBN: " + book.isbn + " / " + "End of loan date : " + @end_loan_date.to_s
 		book.available = false
+		book.borrower = @surname + " " + @name
 
 	end
 
