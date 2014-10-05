@@ -31,6 +31,13 @@ class Library
 		@mantainance_needed_items
 	end
 
+
+	def borrower(book)
+		position = @inventory.index(book)
+		puts @inventory[position].borrower	
+	end
+
+
 end
 
 
