@@ -22,18 +22,13 @@ class Library
 			book.end_loan_date = @start_loan_date + 30
 			member.loan_history << book.end_loan_date
 			book.available = false
+			book.borrower = member
 			position = @inventory.index(book)
 			@inventory[position].available = false
 		else
 			puts 'I am sorry, the item requested is currently not available '
 		end
 	end
-
-	# def available(book)
-	# 	@inventory.each do |book| 
-	# 	puts 'Is available ' if book.available = true
-	# 	end
-	# end
 
 	def number_of_books
 		@inventory.size
@@ -43,11 +38,10 @@ class Library
 		puts book.end_loan_date
 	end
 
-	# def borrower(book)
-	# 	when_is_back(book)
-	# 	position = @inventory.index(book)
-	# 	puts @inventory[position].borrower
-	# end
+	def borrower(book)
+		position = @inventory.index(book)
+		puts @inventory[position].borrower.surname
+	end
 
 	def mantainance_needed
 		@mantainance_needed_items = []
