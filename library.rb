@@ -1,11 +1,11 @@
 class Library
 
-	attr_accessor :inventory, :location, :library_members
+	attr_accessor :inventory, :location, :library_members, :to_fix
 
 	def initialize
 		@inventory = []
 		@library_members = []
-		@to_maintenance = []
+		@to_fix = []
 	end
 
 	def add_member(member)
@@ -33,9 +33,10 @@ class Library
 	end
 
 	def borrow(book, member)
-		book.available ? add_book_to_member_loan_history(book, member) : false ? remove_book_from_library(book) : false
+		if book.available 
+			add_book_to_member_loan_history(book, member) && remove_book_from_library(book) 
+		end
 	end
-
 
 	def number_of_books
 		@inventory.size
@@ -46,29 +47,13 @@ class Library
 		p book.end_loan_date
 	end
 
-
 	def maintenance
 		@inventory.each do |book|
-			@to_maintenance << book if !book.broken? 
-		@to_maintenance
+			 if !book.broken? @to_fix << book
+			 end
+		@to_fix
 		end
 	end
-
-
-
-
-
-
-
-
-
-
-	# def borrower(book)
-	# 	position = @inventory.index(book)
-	# 	puts @inventory[position].borrower.surname
-	# end
-
-
 
 
  end
