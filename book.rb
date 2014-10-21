@@ -7,7 +7,3 @@ end
 
 
 
-
-		# book.borrower = member
-		# 	position = @inventory.index(book)
-		# 	@inventory[position].available = false

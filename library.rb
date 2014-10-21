@@ -1,4 +1,5 @@
 class Library
+
 	attr_accessor :inventory, :location, :library_members
 
 	def initialize
@@ -8,21 +9,16 @@ class Library
 
 	def add_member(member)
 		@library_members << member
-		end
+	end
 
 	def add_book_inventory(book)
 		@inventory << book
-	end
-
-	def available?(book)
-		add_book_inventory(book)
 		book.available = true
 	end
 
 	def standard_length_of_loan(book)
 		@start_loan_date = Date.today
 		book.end_loan_date = @start_loan_date + 30
-		book.end_loan_date
 	end
 
 	def add_book_to_member_loan_history(book, member)
@@ -30,20 +26,17 @@ class Library
 		member.loan_history << book
 	end
 
-
-	def borrow(book, member)
-		if available?(book)
-			add_book_to_member_loan_history(book, member)
-			book.available = false
-			remove_book_from_library(book)
-		end
-	end
-
 	def remove_book_from_library(book)
-		borrow(book, member)
 		position = @inventory.index(book)
 		@inventory[position].available = false
 	end
+
+	def borrow(book, member)
+		book.available ? add_book_to_member_loan_history(book, member) : 'not here'
+		#&& remove_book_from_library(book)
+	end
+
+
 
 
 		
