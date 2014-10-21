@@ -5,6 +5,7 @@ class Library
 	def initialize
 		@inventory = []
 		@library_members = []
+		@to_maintenance = []
 	end
 
 	def add_member(member)
@@ -32,7 +33,7 @@ class Library
 	end
 
 	def borrow(book, member)
-		book.available ? (add_book_to_member_loan_history(book, member) ? remove_book_from_library(book) : 'not here') 
+		book.available ? add_book_to_member_loan_history(book, member) : false ? remove_book_from_library(book) : false
 	end
 
 
@@ -46,6 +47,12 @@ class Library
 	end
 
 
+	def maintenance
+		@inventory.each do |book|
+			@to_maintenance << book if !book.broken? 
+		@to_maintenance
+		end
+	end
 
 
 
@@ -61,13 +68,7 @@ class Library
 	# 	puts @inventory[position].borrower.surname
 	# end
 
-	# def mantainance_needed
-	# 	@mantainance_needed_items = []
-	# 	@inventory.each do |book|
-	# 		@mantainance_needed_items << book if book.is_broken == true
-	# 	end
-	# 	@mantainance_needed_items
-	# end
+
 
 
  end

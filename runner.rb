@@ -18,7 +18,8 @@ def get_instances
 	@giorgia = Member.new('Giorgia', 'Picca')
 	@ucl.add_member(@giorgia)
 	@pablo = Member.new('Pablo', 'Bubu')
-
+	@ucl.add_book_inventory(@sherlock)
+	@ucl.add_book_inventory(@don_quixote)
 
 end
 
