@@ -32,14 +32,22 @@ class Library
 	end
 
 	def borrow(book, member)
-		book.available ? add_book_to_member_loan_history(book, member) : 'not here'
-		#&& remove_book_from_library(book)
+		book.available ? (add_book_to_member_loan_history(book, member) ? remove_book_from_library(book) : 'not here') 
+	end
+
+
+	def number_of_books
+		@inventory.size
+	end
+
+		
+	def return?(book)
+		p book.end_loan_date
 	end
 
 
 
 
-		
 
 
 
@@ -47,15 +55,6 @@ class Library
 
 
 
-
-
-	# def number_of_books
-	# 	@inventory.size
-	# end
-
-	# def return?(book)
-	# 	puts book.end_loan_date
-	# end
 
 	# def borrower(book)
 	# 	position = @inventory.index(book)
