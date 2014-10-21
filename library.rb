@@ -12,16 +12,16 @@ class Library
 
 	def add_book_inventory(book)
 		@inventory << book
-		book.available = true
+		book.available? 
 	end
 
 	def borrow(book, member)
-		if book.available == true
+		if book.available?
 			member.loan_history << book
 			@start_loan_date = Date.today
 			book.end_loan_date = @start_loan_date + 30
 			member.loan_history << book.end_loan_date
-			book.available = false
+			!book.available?
 			book.borrower = member
 			position = @inventory.index(book)
 			@inventory[position].available = false
