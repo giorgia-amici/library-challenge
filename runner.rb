@@ -16,10 +16,30 @@ def get_instances
 	@don_quixote.isbn = '569072390'
 	@ucl_library = Library.new 
 	@giorgia = Member.new('Giorgia', 'Amici')
-	@artisan_needed = Artisan.new
+	@ucl_library.add_member(@giorgia)
+	@pablo = Member.new('Pablo', 'Portabales')
+	@ucl_library.add_member(@pablo)
+	@sherlock.available = true
+	@don_quixote.available = true
+	@ucl_library.add_book_inventory(@sherlock)
+	@ucl_library.add_book_inventory(@don_quixote)
+
 end
 
 
 get_instances
+
+
+# create sherlock
+# giorgia
+# library checks if sherlock available
+# library checks giorgia is a member
+# giorgia borrow sherlock
+# and we expect:
+
+# library that sherlock not available
+# library knows that giorgia has sherlock and when the book will be available
+# library knows everything about giorgia, loand history, name,...
+
 
 
